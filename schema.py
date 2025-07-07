@@ -13,6 +13,8 @@ class ProductCreate(BaseModel):
     percentage: Optional[float] = 0
     category_id: int
 
+
+
 class ProductResponse(BaseModel):
     id: str
     code: str
