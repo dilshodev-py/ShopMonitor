@@ -1,7 +1,7 @@
 Models:
     https://drawsql.app/teams/npm-pro/diagrams/shopmonitor
 
-Farux , Nusratillo , Farxod
+Gayrat
 
 
 
@@ -9,7 +9,7 @@ Farux , Nusratillo , Farxod
 
 
 ----------------------------------------------------
-GAYRAT , Otabek , Rahmatillo , Sardor , Ahmathon
+Otabek , Rahmatillo , Sardor , Ahmathon , Farux , Nusratillo , Farxod
 
 
 POST api/v1/product
