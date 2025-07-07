@@ -1,7 +1,9 @@
 from fastapi import FastAPI
 from db.config import SessionDep
-from db.models import Ingradient
+from db.models import Ingradient, Category, OrderItem, Order
 from forms import IngredientForm
+from schemas import CategoryForm, OrderItemForm
+from utils import update
 
 app = FastAPI()
 
@@ -12,19 +14,21 @@ async def save_ingredients(session:SessionDep,form:IngredientForm):
     return ingredient
 
 @app.post("/category")
-async def create_category(pk: int, name: str):
-    return {
-        "id": pk,
-        "name": category.name,
-        "message": "Category created"
-    }
+async def category_create(category: CategoryForm, session: SessionDep):
+    new_category = Category(**dict(category))
+    session.add(new_category)
+    await session.commit()
+    await session.refresh(new_category)
+    return dict(new_category)
 
-@app.delete("/order")
-async def delete_order(pk: int):
-    return {
-        "id": pk,
-        "message": "Order deleted"
-    }
+
+@app.delete('/order/delete/{order_id}', tags=['order'])
+async def order_delete(order_id: int, session: SessionDep):
+    order = await session.get(Order, order_id)
+    await session.delete(order)
+    await session.commit()
+    return {'message': 'Order deleted successfully!'}
+
 
 @app.patch('/category/{category_id}')
 async def update_category(category_id: int, session: SessionDep, form: CategoryForm):
