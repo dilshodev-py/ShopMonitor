@@ -1,3 +1,16 @@
+Models:
+    https://drawsql.app/teams/npm-pro/diagrams/shopmonitor
+
+Farux , Nusratillo , Farxod
+
+
+
+
+
+
+----------------------------------------------------
+GAYRAT , Otabek , Rahmatillo , Sardor , Ahmathon
+
 
 POST api/v1/product
     {
@@ -13,6 +26,9 @@ POST api/v1/product
         category_id
     }
 
+----------------------------------------------------
+
+
 GET api/v1/product/<PK>
     {
         code,
@@ -26,6 +42,8 @@ GET api/v1/product/<PK>
         percentage,
         category_id
     }
+
+----------------------------------------------------
 
 
 GET api/v1/product/search
@@ -42,6 +60,9 @@ GET api/v1/product/search
         percentage,
         category_id
     }
+
+----------------------------------------------------
+
 
 GET api/v1/product?sort=-top&start_at=2000-01-02&end_at=2002-01-02&category_pk=10
     [
@@ -62,6 +83,9 @@ GET api/v1/product?sort=-top&start_at=2000-01-02&end_at=2002-01-02&category_pk=1
         }
     ]
 
+----------------------------------------------------
+
+
 GET api/v1/product?ingradient_value=0.05&ingradient_id=10
     [
         {
@@ -81,6 +105,7 @@ GET api/v1/product?ingradient_value=0.05&ingradient_id=10
         }
     ]
 
+----------------------------------------------------
 
 PATCH api/v1/product/<pk>
 
@@ -96,11 +121,32 @@ PATCH api/v1/product/<pk>
         category_id
     }
 
+----------------------------------------------------
 
 DELETE api/v1/product/<PK>
     {status}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Omina , Vazira , Jasmina
+
+----------------------------------------------------
 
 POST api/v1/category
     {
@@ -108,11 +154,16 @@ POST api/v1/category
         name
     }
 
+----------------------------------------------------
+
+
 PATCH api/v1/category/<PK>
     {
         parent_id,
         name
     }
+
+----------------------------------------------------
 
 
 POST api/v1/order
@@ -120,9 +171,12 @@ POST api/v1/order
         pk:
     }
 
+----------------------------------------------------
+
 
 DELETE api/v1/order/<PK>
 
+----------------------------------------------------
 
 POST api/v1/orderItem
     {
@@ -130,12 +184,15 @@ POST api/v1/orderItem
         quantity,
         order_id
     }
+----------------------------------------------------
 
 
 PATCH api/v1/orderItem/<PK>
     {
         quantity
     }
+
+----------------------------------------------------
 
 
 
