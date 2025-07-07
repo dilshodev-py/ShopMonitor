@@ -198,7 +198,12 @@ PATCH api/v1/orderItem/<PK>
 
 
 
+GAYRAT
 
+ingradients : POST , GET , PATCH
+Product_Ingradient : POST , PATCH , GET
+
+GET api/v1/product/ingradient/list/<product_pk>
 
 
 
