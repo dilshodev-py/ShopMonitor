@@ -1,5 +1,6 @@
 from datetime import datetime
 from typing import Optional
+
 from sqlalchemy import update, text, func
 from sqlalchemy.ext.declarative import declared_attr
 from sqlmodel import SQLModel, Field, select
@@ -32,8 +33,8 @@ class AbstractClass:
         return True
 
     @classmethod
-    async def get_all(cls, session: SessionDep,sorted_by:list[str]=None):
-        stmt =select(cls)
+    async def get_all(cls, session: SessionDep, sorted_by: list[str] = None):
+        stmt = select(cls)
         if sorted_by:
             stmt = stmt.order_by(*sorted_by)
         result = await session.execute(stmt)
@@ -50,7 +51,7 @@ class AbstractClass:
         return await session.get(cls, id_)
 
     @classmethod
-    async def query(cls, session: SessionDep, stmt,one=False):
+    async def query(cls, session: SessionDep, stmt, one=False):
         query = await session.execute(stmt)
         if one:
             return query.scalars().first()
@@ -76,5 +77,3 @@ class CreatedModel(SQLModel, AbstractClass, table=False):
             "nullable": False,
         },
     )
-
-
