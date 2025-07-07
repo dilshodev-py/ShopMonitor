@@ -1,0 +1,153 @@
+
+POST api/v1/product
+    {
+        code,
+        nomi,
+        images,
+        thumbnail,
+        quantity,
+        discount,
+        sell_price,
+        arrive_price,
+        percentage,
+        category_id
+    }
+
+GET api/v1/product/<PK>
+    {
+        code,
+        nomi,
+        images,
+        thumbnail,
+        quantity,
+        discount,
+        sell_price,
+        arrive_price,
+        percentage,
+        category_id
+    }
+
+
+GET api/v1/product/search
+        form: search text
+    {
+        code,
+        nomi,
+        images,
+        thumbnail,
+        quantity,
+        discount,
+        sell_price,
+        arrive_price,
+        percentage,
+        category_id
+    }
+
+GET api/v1/product?sort=-top&start_at=2000-01-02&end_at=2002-01-02&category_pk=10
+    [
+        {
+        code,
+        nomi,
+        images,
+        thumbnail,
+        quantity,
+        discount,
+        sell_price,
+        arrive_price,
+        percentage,
+        category : {
+                pk,
+                name
+            }
+        }
+    ]
+
+GET api/v1/product?ingradient_value=0.05&ingradient_id=10
+    [
+        {
+        code,
+        nomi,
+        images,
+        thumbnail,
+        quantity,
+        discount,
+        sell_price,
+        arrive_price,
+        percentage,
+        category : {
+                pk,
+                name
+            }
+        }
+    ]
+
+
+PATCH api/v1/product/<pk>
+
+    {
+        nomi,
+        images,
+        thumbnail,
+        quantity,
+        discount,
+        sell_price,
+        arrive_price,
+        percentage,
+        category_id
+    }
+
+
+DELETE api/v1/product/<PK>
+    {status}
+
+
+
+POST api/v1/category
+    {
+        parent_id,
+        name
+    }
+
+PATCH api/v1/category/<PK>
+    {
+        parent_id,
+        name
+    }
+
+
+POST api/v1/order
+    {
+        pk:
+    }
+
+
+DELETE api/v1/order/<PK>
+
+
+POST api/v1/orderItem
+    {
+        product_id,
+        quantity,
+        order_id
+    }
+
+
+PATCH api/v1/orderItem/<PK>
+    {
+        quantity
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
