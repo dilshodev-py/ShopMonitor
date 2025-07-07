@@ -195,9 +195,6 @@ PATCH api/v1/orderItem/<PK>
 ----------------------------------------------------
 
 
-
-
-
 GAYRAT
 
 ingradients : POST , GET , PATCH
