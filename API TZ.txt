@@ -1,7 +1,7 @@
 Models:
     https://drawsql.app/teams/npm-pro/diagrams/shopmonitor
 
-Farux , Nusratillo , Farxod
+Farrux , Nusratillo , Farxod
 
 
 
