@@ -1,13 +1,12 @@
 from fastapi import FastAPI
+from db.config import SessionDep
+from db.models import Ingradient
+from forms import IngredientForm
 
 app = FastAPI()
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
-
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
+@app.post('/save/ingredients/')
+async def save_ingredients(session:SessionDep,form:IngredientForm):
+    ingredient=await Ingradient.create(session,**dict(form))
+    return ingredient

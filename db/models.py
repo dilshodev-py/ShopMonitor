@@ -10,7 +10,7 @@ class Category(CreatedModel, table=True):
     __tablename__ = 'categories'
     name: str = Field(index=True,sa_type=String)
     parent_id: int  = Field(nullable=True, foreign_key="categories.id")
-    category: list["Product"] = Relationship(back_populates="parent")
+    category: list["Product"] = Relationship(back_populates="products")
 
 
 class Product(CreatedModel, table=True):
@@ -24,7 +24,7 @@ class Product(CreatedModel, table=True):
     is_avilable: bool = Field(default=False, sa_type=Boolean)
     category_id: int = Field(nullable=True, foreign_key="categories.id")
     products: "Category" = Relationship(back_populates="category")
-    images: "Product" = Relationship(back_populates="images")
+    images: list["ProductImage"] = Relationship(back_populates="product")
     product_ingredients: list["ProductIngradient"] = Relationship(back_populates="product")
     order_items:list["OrderItem"]=Relationship(back_populates="product")
 
@@ -33,12 +33,12 @@ class ProductImage(CreatedModel, table=True):
     product_id: int = Field(nullable=True, foreign_key="products.id")
     title: str = Field(nullable=True, sa_type=String)
     image: str = Field(nullable=True, sa_type=String)
-    images: "Product" = Relationship(back_populates="product")
+    product: "Product"= Relationship(back_populates="images")
 
 
 class Ingradient(CreatedModel, table=True):
     name:str=Field(nullable=True,sa_type=String)
-    product_ingradient:list["ProductIngradient"]=Relationship(back_populates="ingradient")
+    product_ingredients: list["ProductIngradient"] = Relationship(back_populates="ingradient")
 
 
 class ProductIngradient(CreatedModel, table=True):
@@ -46,8 +46,8 @@ class ProductIngradient(CreatedModel, table=True):
 
     ingredient_id: int = Field(nullable=True, foreign_key="ingradients.id")
     product_id: int = Field(nullable=True, foreign_key="products.id")
-    product: "Product" = Relationship(back_populates="product_ingradient")
-    ingradient: "Ingradient" = Relationship(back_populates="product_ingradient")
+    product: "Product" = Relationship(back_populates="product_ingredients")
+    ingradient: "Ingradient" = Relationship(back_populates="product_ingredients")
 
 
 class Order(CreatedModel, table=True):
