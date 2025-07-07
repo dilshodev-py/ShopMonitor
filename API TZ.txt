@@ -200,6 +200,11 @@ Product_Ingradient : POST , PATCH , GET
 GET api/v1/product/ingradient/list/<product_pk>
 
 
+ADMIN PANEL
+
+----------------------------------------------
+
+
 
 
 
