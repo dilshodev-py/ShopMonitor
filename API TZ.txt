@@ -9,7 +9,7 @@ Gayrat
 
 
 ----------------------------------------------------
-Otabek , Rahmatillo , Sardor , Ahmathon , Farux , Nusratillo , Farxod
+Otabek , Rahmatillo , Sardor , Ahmathon , Farrux , Nusratillo , Farxod , Botir
 
 
 POST api/v1/product
