@@ -16,6 +16,7 @@ class Category(CreatedModel, table=True):
 
 class Product(CreatedModel, table=True):
     name: str = Field(index=True, sa_type=String)
+    code: str = Field(nullable=True, sa_type=String)
     arrive_price: float = Field(default=0, sa_type=Float)
     sell_price: float = Field(default=0, sa_type=Float)
     percentage: int = Field(default=0, sa_type=Integer)
@@ -49,6 +50,8 @@ class ProductIngradient(CreatedModel, table=True):
     product_id: int = Field(nullable=True, foreign_key="products.id")
     product: "Product" = Relationship(back_populates="product_ingredients")
     ingradient: "Ingradient" = Relationship(back_populates="product_ingredients")
+    value:float=Field(sa_type=Float,default=0)
+    portion:str=Field(sa_type=String,nullable=True)
 
 
 class Order(CreatedModel, table=True):
