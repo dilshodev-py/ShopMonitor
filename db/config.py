@@ -67,7 +67,7 @@ class CreatedModel(SQLModel, AbstractClass, table=False):
     created_at: Optional[datetime] = Field(
         sa_column_kwargs={
             "server_default": text("TIMEZONE('Asia/Tashkent', NOW())"),
-            "nullable": False,
+            "nullable": True,
         },
     )
     updated_at: Optional[datetime] = Field(
