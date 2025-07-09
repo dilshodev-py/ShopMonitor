@@ -1,4 +1,5 @@
 import asyncio
+from datetime import datetime
 
 from sqlalchemy import String, Float, Integer, Boolean, DateTime
 from sqlmodel import Field, SQLModel, Relationship
@@ -50,13 +51,13 @@ class ProductIngradient(CreatedModel, table=True):
     product_id: int = Field(nullable=True, foreign_key="products.id")
     product: "Product" = Relationship(back_populates="product_ingredients")
     ingradient: "Ingradient" = Relationship(back_populates="product_ingredients")
-    value:float=Field(sa_type=Float,default=0)
-    portion:str=Field(sa_type=String,nullable=True)
+    value: float = Field(sa_type=Float, default=0)
+    portion: str = Field(sa_type=String, nullable=True)
 
 
 class Order(CreatedModel, table=True):
     total_price: float = Field(default=0, sa_type=Float)
-    order_at: str = Field(nullable=True, sa_type=DateTime)
+    order_at: str = Field(default_factory=datetime.now, sa_type=DateTime)
     order_items: list["OrderItem"] = Relationship(back_populates="order")
 
 

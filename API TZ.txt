@@ -148,7 +148,7 @@ Omina , Vazira , Jasmina
 
 ----------------------------------------------------
 
-POST api/v1/category
+POST api/v1/category        ✅
     {
         parent_id,
         name
@@ -157,7 +157,7 @@ POST api/v1/category
 ----------------------------------------------------
 
 
-PATCH api/v1/category/<PK>
+PATCH api/v1/category/<PK>         ✅
     {
         parent_id,
         name
@@ -166,7 +166,7 @@ PATCH api/v1/category/<PK>
 ----------------------------------------------------
 
 
-POST api/v1/order
+POST api/v1/order               ✅
     {
         pk:
     }
@@ -174,11 +174,11 @@ POST api/v1/order
 ----------------------------------------------------
 
 
-DELETE api/v1/order/<PK>
+DELETE api/v1/order/<PK>           ✅
 
 ----------------------------------------------------
 
-POST api/v1/orderItem
+POST api/v1/orderItem           ✅
     {
         product_id,
         quantity,
@@ -187,7 +187,7 @@ POST api/v1/orderItem
 ----------------------------------------------------
 
 
-PATCH api/v1/orderItem/<PK>
+PATCH api/v1/orderItem/<PK>         ✅
     {
         quantity
     }

@@ -16,6 +16,11 @@ class OrderItemForm(BaseModel):
     quantity: int
 
 
+class OrderForm(BaseModel):
+    total_price: float
+    order_items: list[OrderItemForm]
+
+
 class ProductIngredientForm(BaseModel):
     product_id: int | None = None
     ingredient_id: int | None = None
